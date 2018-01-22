@@ -1,0 +1,37 @@
+<!-- Search info -->
+<div class="container-fluid" id="search-header">
+	<div class="row align-items-center">
+    	<div class="col-lg-4 col-md-4 col-sm-6 text-xl-left text-lg-left text-md-left text-center py-2 px-0">
+    	  Results for "phones"
+    	</div>
+
+    	<div class="col-lg-4 col-md-4 col-sm-6 py-2 text-center">
+    	  <span>2434 items found</span>
+    	</div>
+
+    	<div class="col-lg-4 col-md-4 col-sm-12 px-0 py-2 text-center">
+    		<div class="text-center float-md-right">
+    			<select class="form-control d-inline-block">
+    				<option value="husker">Order by</option>
+      				<option value="starbuck">Cheapest</option>
+      				<option value="hotdog">Most expensive</option>
+      				<option value="apollo">Apollo</option>
+    			</select>
+			</div>
+
+    	</div>
+	</div>
+</div> <!-- End of search info -->
+
+
+<!-- Search form -->
+<div class="row">
+    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12">
+    	<app-search-form></app-search-form>
+    </div> 
+
+	<!-- Gallery and pagination -->
+	<div class="col-xl-10 col-lg-10 col-md-8 col-sm-12">
+		<app-search-results></app-search-results>
+	</div>
+</div> <!-- Search form -->

@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~variables.sass" //must be imported on all pages that use these variables, since these values won't cascade into other stylesheets
+
+
+/* Sticks footer (of variable width) to bottom of page */
+body, .wrapper
+	min-height: 100vh
+
+main
+	flex: 1
+
+
+/* Shopping cart and search buttons */
+.btn.btn-primary
+	background-color: $red
+	border-color: $red
+
+.btn.btn-primary:hover, .btn-primary:not([disabled]):not(.disabled):active
+	background-color: $deep-red
+	border-color: $deep-red
