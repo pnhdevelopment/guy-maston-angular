@@ -1,7 +1,7 @@
-<!-- Item category -->
+<!-- Mobile phones -->
 <div class="row">
 
-  <!-- Category title -->
+  <!-- Title -->
   <div class="col-lg-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
@@ -14,106 +14,33 @@
       </h4>
       <hr>
     </div>
-  </div> <!-- End of category title -->
+  </div> <!-- Title -->
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4">
-    <a href="#">
-      <img src="assets/phones/phone1.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-	      <div>
-		      <span class="reduced-price mr-2">$699.95</span>
-		      <del class="previous-price">$999.95</del>
-	      </div>
-	      <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4">
-    <a href="#">
-      <img src="assets/phones/phone2.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">TracFone Samsung Galaxy J3 Luna Pro 4G LTE Prepaid Smartphone</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4">
-    <a href="#">
-      <img src="assets/phones/phone3.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Simple Mobile Samsung Galaxy J7 Sky Pro</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4">
-    <a href="#">
-      <img src="assets/phones/phone4.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4">
-    <a href="#">
-      <img src="assets/phones/phone5.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4">
-    <a href="#">
-      <img src="assets/phones/phone6.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products; let i = index">
+    <div *ngIf="product.category_slug == 'mobile-phones' && i < 6">
+      <a href="#">
+        <img src="{{product.url}}" alt="">
+      </a>
+      <div class="product-info">
+        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+  	      <div>
+  		      <span class="reduced-price mr-2">${{product.price}}</span>
+  		      <del class="previous-price">${{product.previous_price}}</del>
+  	      </div>
+  	      <button class="btn btn-primary add-to-cart">Add to cart</button>
+      </div>
     </div>
   </div> <!-- End of item -->
 
 
-</div> <!-- Item category -->
+</div> <!-- End of row -->
 
 
 
 
-<!-- Item category -->
+<!-- Beauty -->
 <div class="row">
 
   <!-- Category title -->
@@ -133,102 +60,28 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="assets/beauty/beauty1.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+    <div *ngIf="product.category_slug == 'beauty'">
+      <a href="#">
+        <img src="{{product.url}}" alt="">
+      </a>
+      <div class="product-info">
+        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+          <div>
+            <span class="reduced-price mr-2">${{product.price}}</span>
+            <del class="previous-price">${{product.previous_price}}</del>
+          </div>
+          <button class="btn btn-primary add-to-cart">Add to cart</button>
+      </div>
     </div>
   </div> <!-- End of item -->
 
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="assets/beauty/beauty2.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="assets/beauty/beauty2.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="assets/beauty/beauty1.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="assets/beauty/beauty2.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="assets/beauty/beauty2.jpg" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-
-</div> <!-- Item category -->
+</div>  
 
 
 
 
-<!-- Item category -->
+<!-- Entertainment -->
 <div class="row">
 
   <!-- Category title -->
@@ -248,62 +101,59 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="http://placehold.it/400x300" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+    <div *ngIf="product.category_slug == 'entertainment'">
+      <a href="#">
+        <img src="{{product.url}}" alt="">
+      </a>
+      <div class="product-info">
+        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+          <div>
+            <span class="reduced-price mr-2">${{product.price}}</span>
+            <del class="previous-price">${{product.previous_price}}</del>
+          </div>
+          <button class="btn btn-primary add-to-cart">Add to cart</button>
+      </div>
     </div>
   </div> <!-- End of item -->
 
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="http://placehold.it/400x300" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+
+</div> <!-- Item category -->
+
+
+<!-- Fashion -->
+<div class="row">
+
+  <!-- Category title -->
+  <div class="col-lg-12">
+    <div class="position-relative">
+      <h4 class="mb-3 pb-2">
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
+          <span class="ml-2 mr-5">Fashion</span>
+          <a href="#" class="see-more d-inline-block">
+            <span>See more</span>
+            <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
+          </a>
+      </h4>
+      <hr>
     </div>
-  </div> <!-- End of item -->
+  </div> <!-- End of category title -->
+
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="http://placehold.it/400x300" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
-    </div>
-  </div> <!-- End of item -->
-
-  <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4">
-    <a href="#">
-      <img src="http://placehold.it/400x300" alt="">
-    </a>
-    <div class="product-info">
-      <h5 class="mt-1"><a href="#">Apple iPhone S6</a></h5>
-        <div>
-          <span class="reduced-price mr-2">$699.95</span>
-          <del class="previous-price">$999.95</del>
-        </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+    <div *ngIf="product.category_slug == 'fashion'">
+      <a href="#">
+        <img src="{{product.url}}" alt="">
+      </a>
+      <div class="product-info">
+        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+          <div>
+            <span class="reduced-price mr-2">${{product.price}}</span>
+            <del class="previous-price">${{product.previous_price}}</del>
+          </div>
+          <button class="btn btn-primary add-to-cart">Add to cart</button>
+      </div>
     </div>
   </div> <!-- End of item -->
 
@@ -312,4 +162,82 @@
 
 
 
+<!-- Books -->
+<div class="row">
 
+  <!-- Category title -->
+  <div class="col-lg-12">
+    <div class="position-relative">
+      <h4 class="mb-3 pb-2">
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
+          <span class="ml-2 mr-5">Books</span>
+          <a href="#" class="see-more d-inline-block">
+            <span>See more</span>
+            <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
+          </a>
+      </h4>
+      <hr>
+    </div>
+  </div> <!-- End of category title -->
+
+
+  <!-- Item -->
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+    <div *ngIf="product.category_slug == 'books'">
+      <a href="#">
+        <img src="{{product.url}}" alt="">
+      </a>
+      <div class="product-info">
+        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+          <div>
+            <span class="reduced-price mr-2">${{product.price}}</span>
+            <del class="previous-price">${{product.previous_price}}</del>
+          </div>
+          <button class="btn btn-primary add-to-cart">Add to cart</button>
+      </div>
+    </div>
+  </div> <!-- End of item -->
+
+
+</div> <!-- Item category -->
+
+
+
+<!-- Baby -->
+<div class="row">
+
+  <!-- Category title -->
+  <div class="col-lg-12">
+    <div class="position-relative">
+      <h4 class="mb-3 pb-2">
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
+          <span class="ml-2 mr-5">Baby</span>
+          <a href="#" class="see-more d-inline-block">
+            <span>See more</span>
+            <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
+          </a>
+      </h4>
+      <hr>
+    </div>
+  </div> <!-- End of category title -->
+
+
+  <!-- Item -->
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+    <div *ngIf="product.category_slug == 'baby'">
+      <a href="#">
+        <img src="{{product.url}}" alt="">
+      </a>
+      <div class="product-info">
+        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+          <div>
+            <span class="reduced-price mr-2">${{product.price}}</span>
+            <del class="previous-price">${{product.previous_price}}</del>
+          </div>
+          <button class="btn btn-primary add-to-cart">Add to cart</button>
+      </div>
+    </div>
+  </div> <!-- End of item -->
+
+
+</div> <!-- Item category -->
