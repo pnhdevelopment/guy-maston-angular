@@ -1,25 +1,23 @@
-	<!-- Large image thumbnail -->
-<div class="row mb-2">
+<!-- Large image thumbnail -->
+<div class="row mb-2" *ngIf="product">
 	<div class="col-lg-5 col-md-6 mb-3">
-		<img src="http://placehold.it/400x300" alt="">
+		<img src="{{product.url}}" alt="">
 	</div>
 
 	<div class="col-lg-7 col-md-6">
 		<!-- Title -->
 		<div class="position-relative">
-			<h4 class="mb-3 pb-2">iPhone S6</h4>
+			<h4 class="mb-3 pb-2">{{product.title}}</h4>
 			<hr>
 		</div>
 		
 		<!-- Product description -->
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis amet earum debitis incidunt rem in cum, sequi accusantium facere mollitia facilis consequatur, doloribus ut natus, consectetur laboriosam suscipit! Magni, laborum.</p>
-
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis amet earum debitis incidunt rem in cum, sequi accusantium facere mollitia facilis consequatur, doloribus ut natus, consectetur laboriosam suscipit! Magni, laborum.</p>
+		{{product.description}}
 		
 		<!-- Price -->
 		<div>
-	      <span class="reduced-price mr-2">$699.95</span>
-	      <del class="previous-price">$999.95</del>
+	      <span class="reduced-price mr-2">${{product.price}}</span>
+	      <del class="previous-price">${{product.previous_price}}</del>
       	</div>
 
       	<!-- Add to cart button -->

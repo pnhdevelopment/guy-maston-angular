@@ -7,7 +7,7 @@
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
           <span class="ml-2 mr-5">Mobile phones</span>
-          <a href="#" class="see-more d-inline-block">
+          <a routerLink="search" [queryParams]="{ category: 'mobile-phones'}" class="see-more d-inline-block">
             <span>See more</span>
             <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
           </a>
@@ -18,21 +18,19 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products; let i = index">
-    <div *ngIf="product.category_slug == 'mobile-phones' && i < 6">
-      <a href="#">
-        <img src="{{product.url}}" alt="">
-      </a>
-      <div class="product-info">
-        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
-  	      <div>
-  		      <span class="reduced-price mr-2">${{product.price}}</span>
-  		      <del class="previous-price">${{product.previous_price}}</del>
-  	      </div>
-  	      <button class="btn btn-primary add-to-cart">Add to cart</button>
-      </div>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('mobile-phones') | slice:0:6">
+    <a routerLink="product/{{product.slug}}">
+      <img src="{{product.url}}" alt="">
+    </a>
+    <div class="product-info">
+      <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+	      <div>
+		      <span class="reduced-price mr-2">${{product.price}}</span>
+		      <del class="previous-price">${{product.previous_price}}</del>
+	      </div>
+	      <button class="btn btn-primary add-to-cart">Add to cart</button>
     </div>
-  </div> <!-- End of item -->
+  </div>  <!-- End of item -->
 
 
 </div> <!-- End of row -->
@@ -49,7 +47,7 @@
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#beauty"></use></svg>
           <span class="ml-2 mr-5">Beauty</span>
-          <a href="#" class="see-more d-inline-block">
+          <a routerLink="search" [queryParams]="{ category: 'beauty'}" class="see-more d-inline-block">
             <span>See more</span>
             <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
           </a>
@@ -60,19 +58,17 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
-    <div *ngIf="product.category_slug == 'beauty'">
-      <a href="#">
-        <img src="{{product.url}}" alt="">
-      </a>
-      <div class="product-info">
-        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
-          <div>
-            <span class="reduced-price mr-2">${{product.price}}</span>
-            <del class="previous-price">${{product.previous_price}}</del>
-          </div>
-          <button class="btn btn-primary add-to-cart">Add to cart</button>
-      </div>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('beauty') | slice:0:6">
+    <a href="#">
+      <img src="{{product.url}}" alt="">
+    </a>
+    <div class="product-info">
+      <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+        <div>
+          <span class="reduced-price mr-2">${{product.price}}</span>
+          <del class="previous-price">${{product.previous_price}}</del>
+        </div>
+        <button class="btn btn-primary add-to-cart">Add to cart</button>
     </div>
   </div> <!-- End of item -->
 
@@ -88,9 +84,9 @@
   <div class="col-lg-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
-          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
-          <span class="ml-2 mr-5">Mobile phones</span>
-          <a href="#" class="see-more d-inline-block">
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#entertainment"></use></svg>
+          <span class="ml-2 mr-5">Entertainment</span>
+          <a routerLink="search" [queryParams]="{ category: 'entertainment'}" class="see-more d-inline-block">
             <span>See more</span>
             <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
           </a>
@@ -101,19 +97,17 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
-    <div *ngIf="product.category_slug == 'entertainment'">
-      <a href="#">
-        <img src="{{product.url}}" alt="">
-      </a>
-      <div class="product-info">
-        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
-          <div>
-            <span class="reduced-price mr-2">${{product.price}}</span>
-            <del class="previous-price">${{product.previous_price}}</del>
-          </div>
-          <button class="btn btn-primary add-to-cart">Add to cart</button>
-      </div>
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('entertainment') | slice:0:6">
+    <a href="#">
+      <img src="{{product.url}}" alt="">
+    </a>
+    <div class="product-info">
+      <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+        <div>
+          <span class="reduced-price mr-2">${{product.price}}</span>
+          <del class="previous-price">${{product.previous_price}}</del>
+        </div>
+        <button class="btn btn-primary add-to-cart">Add to cart</button>
     </div>
   </div> <!-- End of item -->
 
@@ -128,9 +122,9 @@
   <div class="col-lg-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
-          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#fashion"></use></svg>
           <span class="ml-2 mr-5">Fashion</span>
-          <a href="#" class="see-more d-inline-block">
+          <a routerLink="search" [queryParams]="{ category: 'fashion'}" class="see-more d-inline-block">
             <span>See more</span>
             <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
           </a>
@@ -141,7 +135,7 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('fashion') | slice:0:6">
     <div *ngIf="product.category_slug == 'fashion'">
       <a href="#">
         <img src="{{product.url}}" alt="">
@@ -169,9 +163,9 @@
   <div class="col-lg-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
-          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#books"></use></svg>
           <span class="ml-2 mr-5">Books</span>
-          <a href="#" class="see-more d-inline-block">
+          <a routerLink="search" [queryParams]="{ category: 'books'}" class="see-more d-inline-block">
             <span>See more</span>
             <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
           </a>
@@ -182,7 +176,7 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('books') | slice:0:6">
     <div *ngIf="product.category_slug == 'books'">
       <a href="#">
         <img src="{{product.url}}" alt="">
@@ -210,9 +204,9 @@
   <div class="col-lg-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
-          <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
+          <svg class="category-icon"><use xlink:href="assets/sprite.svg#baby"></use></svg>
           <span class="ml-2 mr-5">Baby</span>
-          <a href="#" class="see-more d-inline-block">
+          <a routerLink="search" [queryParams]="{ category: 'baby'}" class="see-more d-inline-block">
             <span>See more</span>
             <svg class="see-more-arrow"><use xlink:href="assets/sprite.svg#see-more"></use></svg>
           </a>
@@ -223,7 +217,7 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of products">
+  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('baby') | slice:0:6">
     <div *ngIf="product.category_slug == 'baby'">
       <a href="#">
         <img src="{{product.url}}" alt="">

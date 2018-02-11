@@ -3,19 +3,21 @@
 	<div class="row">
 		<!-- Logo -->
 		<div class="col-lg-6 col-md-6 col-sm-12 my-auto text-xl-left text-lg-left text-md-left text-center">
-			<img src="assets/logo.svg" alt="Logo" class="logo">
+			<a routerLink="">
+				<img src="assets/logo.svg" alt="Logo" class="logo">
+			</a>
 		</div>
 		<!-- Links -->
 		<div class="col-lg-6 col-md-6 col-sm-12 admin my-auto text-xl-right text-lg-right text-md-right text-center">
 
 			<!-- Sign in -->
-			<a href="#" class="align-middle">
+			<a routerLink="sign-in" class="align-middle">
 				<svg class="icon"><use xlink:href="assets/sprite.svg#sign-in"></use></svg>
 				<span>Sign in</span>
 			</a>
 
 			<!-- Cart -->
-			<a href="#" class="align-middle">
+			<a routerLink="cart" class="align-middle">
 				<svg class="icon"><use xlink:href="assets/sprite.svg#cart"></use></svg>
 				<span>Cart</span>
 			</a>

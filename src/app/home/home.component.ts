@@ -18,4 +18,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  filterItemsOfCategory(type){
+    return this.products.filter(x => x.category_slug == type);
+  }
+
 }

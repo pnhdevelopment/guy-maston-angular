@@ -3,7 +3,9 @@
 	<!-- Logo -->
  	<div class="row text-center">
   		<div class="col-lg-12 m-4">
-			<img src="assets/logo-footer.svg" alt="Logo" id="footer-logo">
+  			<a routerLink="" alt="Logo">
+				<img src="assets/logo-footer.svg" alt="Logo" id="footer-logo">
+			</a>
 		</div>
   	</div>
 
@@ -11,10 +13,10 @@
 		<!-- Quick links -->
 	    <div class="col-lg-4 col-md-12 quick-links">
 			<h4 class="pb-2 mb-3"><img  class="icon" src="assets/links.svg" alt="">Quick links</h4>
-			<a href="" class="mr-4">Contact</a>
-			<a href="" class="mr-4">Returns</a>
-			<a href="" class="mr-4">FAQ</a>
-			<a href="" class="mr-4">Sign in</a>
+			<a routerLink="enquiries" fragment="contact" class="mr-4">Contact</a>
+			<a routerLink="enquiries" fragment="returns" class="mr-4">Returns</a>
+			<a routerLink="enquiries" fragment="faq" class="mr-4">FAQ</a>
+			<a routerLink="" class="mr-4">Sign in</a>
 		</div>
 		
 		<!-- Shopping cart -->
@@ -43,11 +45,11 @@
 	<div class="row justify-content-center">
 		<div class="col col-lg-8 text-center m-4">
 			
-			<a href="#" class="m-3">Conditions of Use</a>
-			<a href="#" class="m-3">Primary Notice</a>
-			<a href="#" class="m-3">Cookies & Internet Advertising</a>
-			<a href="#" class="m-3">Help</a>
-			<a href="#" class="m-3">Contact Us</a>
+			<a routerLink="policies" fragment="conditions-of-use" class="m-3">Conditions of Use</a>
+			<a routerLink="policies" fragment="primary-notice" class="m-3">Primary Notice</a>
+			<a routerLink="policies" fragment="cookies-and-internet-advertising" class="m-3">Cookies & Internet Advertising</a>
+			<a routerLink="enquiries" fragment="help" class="m-3">Help</a>
+			<a routerLink="enquiries" fragment="contact" class="m-3">Contact Us</a>
 
 		</div>
 	</div>

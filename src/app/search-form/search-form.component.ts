@@ -12,4 +12,9 @@ export class SearchFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  processSearch(e){
+  	e.preventDefault();
+  	console.log(e.target.elements);
+  }
+
 }

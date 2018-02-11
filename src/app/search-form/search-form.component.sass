@@ -1,12 +1,13 @@
 @import "~variables.sass"
 
-
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before
-	background-color: $red
-
-
 .custom-control-input:active~.custom-control-label::before
 	background-color: #ffb3c2
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before
+	background-color: $red
+
+.custom-control-input:checked~.custom-control-label::before
+	background-color: $red
 
 
 h4

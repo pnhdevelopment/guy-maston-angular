@@ -1,4 +1,4 @@
-<form>
+<form (submit)="processSearch($event)">
 	<!-- Price -->
 	<div class="price mb-4">
 		<div class="position-relative">
@@ -7,57 +7,62 @@
 			</h4>
 			<hr>
 		</div>
+		
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="under-25" name="price" checked="true">
+			<label class="custom-control-label" for="under-25">Under $25</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="from-25-to-50" name="price">
+			<label class="custom-control-label" for="from-25-to-50">$25 to $50</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="from-50-to-250" name="price">
+			<label class="custom-control-label" for="from-50-to-250">$50 to $250</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="greater-than-250" name="price">
+			<label class="custom-control-label" for="greater-than-250">Greater than $250</label>
+		</div>
 
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item4" checked>
-			<label class="custom-control-label" for="item4">Under $25</label>
-		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item3">
-			<label class="custom-control-label" for="item3">$25 to $50</label>
-		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item2">
-			<label class="custom-control-label" for="item2">$50 to $250</label>
-		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item1">
-			<label class="custom-control-label" for="item1">Greater than $250</label>
-		</div>
-
-		<!-- Min and Max price -->
-		<div class="form-row pt-2">
-			<div class="col">
-				<input type="text" class="form-control" placeholder="$ Min">
-			</div>
-			<div class="col">
-				<input type="text" class="form-control" placeholder="$ Max">
-			</div>
-		</div>
 	</div> <!-- End of Price -->
 
 
-	<!-- Categories -->
+	<!-- Category -->
 	<div class="categories mb-4">
 		<div class="position-relative">
 			<h4 class="mb-3 pb-2">
-				<span>Categories</span>
+				<span>Category</span>
 			</h4>
 			<hr>
 		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item11" checked>
-			<label class="custom-control-label" for="item11">Checkbox 1</label>
+
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="mobile-phones" name="category" checked="true">
+			<label class="custom-control-label" for="mobile-phones">Mobile phones</label>
 		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item12">
-			<label class="custom-control-label" for="item12">Checkbox 2</label>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="beauty" name="category">
+			<label class="custom-control-label" for="beauty">Beauty</label>
 		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item13">
-			<label class="custom-control-label" for="item13">Checkbox 3</label>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="entertainment" name="category">
+			<label class="custom-control-label" for="entertainment">Entertainment</label>
 		</div>
-	</div> <!-- End of Categories -->
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="fashion" name="category">
+			<label class="custom-control-label" for="fashion">Fashion</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="books" name="category">
+			<label class="custom-control-label" for="books">Books</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="baby" name="category">
+			<label class="custom-control-label" for="baby">Baby</label>
+		</div>
+
+	</div> <!-- End of Category -->
 
 	<!-- Brand -->
 	<div class="brand mb-4">
@@ -67,19 +72,35 @@
 			</h4>
 			<hr>
 		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item7" checked>
-			<label class="custom-control-label" for="item7">Apple</label>
+		
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="apple" name="brand" value="apple" checked="true">
+			<label class="custom-control-label" for="apple">Apple</label>
 		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item8">
-			<label class="custom-control-label" for="item8">Samsung</label>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="samsung" name="brand" value="samsung">
+			<label class="custom-control-label" for="samsung">Samsung</label>
 		</div>
-		<div class="d-block custom-control custom-checkbox">
-			<input type="checkbox" class="custom-control-input" id="item9">
-			<label class="custom-control-label" for="item9">Microsoft</label>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="microsoft" name="brand" value="microsoft">
+			<label class="custom-control-label" for="microsoft">Microsoft</label>
 		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="hermes" name="brand" value="hermes">
+			<label class="custom-control-label" for="hermes">Hermes</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="acer" name="brand" value="acer">
+			<label class="custom-control-label" for="acer">Acer</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="homebrand" name="brand" value="homebrand">
+			<label class="custom-control-label" for="homebrand">Homebrand</label>
+		</div>
+
 	</div> <!-- End of Brand -->
+
+	<input class="btn btn-primary add-to-cart" type="submit" value="Search">
 
 </form>
 
