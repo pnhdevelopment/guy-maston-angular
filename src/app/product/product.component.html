@@ -1,7 +1,18 @@
+<div *ngIf="!product">
+  <div class="loader"></div>
+</div>
+
 <!-- Large image thumbnail -->
 <div class="row mb-2" *ngIf="product">
 	<div class="col-lg-5 col-md-6 mb-3">
-		<img src="{{product.url}}" alt="">
+		<div class="img-wrapper">
+			<img 
+				src="{{product.images['800px']}}" alt=""
+				srcset="{{product.images['800px']}} 800w, {{product.images['550px']}} 550w"
+				sizes="(max-width: 599px) 550px, (min-width: 600px) 800px"
+				#img (load)="changeOpacity(img)"
+        	>
+		</div>
 	</div>
 
 	<div class="col-lg-7 col-md-6">
@@ -16,8 +27,8 @@
 		
 		<!-- Price -->
 		<div>
-	      <span class="reduced-price mr-2">${{product.price}}</span>
-	      <del class="previous-price">${{product.previous_price}}</del>
+	      <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+	      <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
       	</div>
 
       	<!-- Add to cart button -->
@@ -27,16 +38,19 @@
 
 
 
+		
+
+
 <!-- You might also be interested in... -->
-<div class="position-relative">
+<!-- <div class="position-relative">
 	<h4 class="mb-3 pb-2">You might also be interested in...</h4>
 	<hr>
 </div>
 
-<div class="row">
+<div class="row"> -->
 
 	<!-- Item -->
-	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
+<!-- 	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
 		<a href="#">
 			<img src="http://placehold.it/400x300" alt="">
 		</a>
@@ -48,10 +62,10 @@
 			</div>
 			<button class="btn btn-primary add-to-cart">Add to cart</button>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Item -->
-	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
+<!-- 	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
 		<a href="#">
 			<img src="http://placehold.it/400x300" alt="">
 		</a>
@@ -63,10 +77,10 @@
 			</div>
 			<button class="btn btn-primary add-to-cart">Add to cart</button>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Item -->
-	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
+<!-- 	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
 		<a href="#">
 			<img src="http://placehold.it/400x300" alt="">
 		</a>
@@ -78,10 +92,10 @@
 			</div>
 			<button class="btn btn-primary add-to-cart">Add to cart</button>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Item -->
-	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
+<!-- 	<div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-6 mb-4">
 		<a href="#">
 			<img src="http://placehold.it/400x300" alt="">
 		</a>
@@ -93,8 +107,9 @@
 			</div>
 			<button class="btn btn-primary add-to-cart">Add to cart</button>
 		</div>
-	</div>
+	</div> -->
 
 
  
-</div>
+<!-- </div> -->
+

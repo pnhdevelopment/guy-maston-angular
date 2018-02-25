@@ -2,7 +2,7 @@
 	
 	<!-- Logo -->
  	<div class="row text-center">
-  		<div class="col-lg-12 m-4">
+  		<div class="col-lg-12 my-4">
   			<a routerLink="" alt="Logo">
 				<img src="assets/logo-footer.svg" alt="Logo" id="footer-logo">
 			</a>
@@ -12,11 +12,11 @@
  	<div class="row">
 		<!-- Quick links -->
 	    <div class="col-lg-4 col-md-12 quick-links">
-			<h4 class="pb-2 mb-3"><img  class="icon" src="assets/links.svg" alt="">Quick links</h4>
-			<a routerLink="enquiries" fragment="contact" class="mr-4">Contact</a>
-			<a routerLink="enquiries" fragment="returns" class="mr-4">Returns</a>
-			<a routerLink="enquiries" fragment="faq" class="mr-4">FAQ</a>
-			<a routerLink="" class="mr-4">Sign in</a>
+			<h4 class="pb-2 mb-3"><img class="icon" src="assets/links.svg" alt="">Quick links</h4>
+			<a routerLink="enquiries" fragment="contact" class="mr-4" [ngx-scroll-to]="'#contact'">Contact</a>
+			<a routerLink="enquiries" fragment="returns" class="mr-4" [ngx-scroll-to]="'#returns'">Returns</a>
+			<a routerLink="enquiries" fragment="faq" class="mr-4" [ngx-scroll-to]="'#faq'">FAQ</a>
+			<a (click)="auth.login()" class="mr-4">Sign in</a>
 		</div>
 		
 		<!-- Shopping cart -->
@@ -27,13 +27,13 @@
 
 		<!-- Subscribe to our newsletter -->
 		<div class="col-lg-4 col-md-12">
-			<h4 class="pb-2 mb-3"><img  class="icon" src="assets/subscribe.svg" alt="">Subscribe to our newsletter</h4>
+			<h4 class="pb-2 mb-3"><img class="icon" src="assets/subscribe.svg" alt="">Subscribe to our newsletter</h4>
 
 			<form>
 				<div class="input-group">
-					<input type="email" name="email" placeholder="Email" class="form-control">
+					<input type="email" [(ngModel)]="email" name="email" placeholder="Email" class="form-control">
 					<span class="input-group-btn">
-						<input type="submit" name="commit" value="Submit" class="btn btn-primary">
+						<input type="submit" name="commit" value="Submit" (click)="addPost()" class="btn btn-primary">
 					</span> 
 				</div>
 			</form>
@@ -43,21 +43,21 @@
 
 	<!-- Notice Links -->
 	<div class="row justify-content-center">
-		<div class="col col-lg-8 text-center m-4">
+		<div class="col col-lg-8 text-center my-4">
 			
-			<a routerLink="policies" fragment="conditions-of-use" class="m-3">Conditions of Use</a>
-			<a routerLink="policies" fragment="primary-notice" class="m-3">Primary Notice</a>
-			<a routerLink="policies" fragment="cookies-and-internet-advertising" class="m-3">Cookies & Internet Advertising</a>
-			<a routerLink="enquiries" fragment="help" class="m-3">Help</a>
-			<a routerLink="enquiries" fragment="contact" class="m-3">Contact Us</a>
+			<a routerLink="policies" fragment="conditions-of-use" class="m-3" [ngx-scroll-to]="'#conditions-of-use'">Conditions of Use</a>
+			<a routerLink="policies" fragment="primary-notice" class="m-3" [ngx-scroll-to]="'#primary-notice'">Primary Notice</a>
+			<a routerLink="policies" fragment="cookies-and-internet-advertising" class="m-3" [ngx-scroll-to]="'#cookies-and-internet-advertising'">Cookies & Internet Advertising</a>
+			<a routerLink="enquiries" fragment="help" class="m-3" [ngx-scroll-to]="'#help'">Help</a>
+			<a routerLink="enquiries" fragment="contact" class="m-3" [ngx-scroll-to]="'#contact'">Contact Us</a>
 
 		</div>
 	</div>
 	
 	<!-- Copyright -->
   	<div class="row text-center copyright">
-  		<div class="col-lg-12 m-3">
-		Copyright &copy; 2018 Guy Maston All rights reserved
+  		<div class="col-lg-12 my-3">
+			Copyright &copy; 2018 Guy Maston All rights reserved
 		</div>
   	</div>
 

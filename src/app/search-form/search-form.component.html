@@ -1,4 +1,4 @@
-<form (submit)="processSearch($event)">
+<form #f="ngForm" (ngSubmit)="refineSearch(f)">
 	<!-- Price -->
 	<div class="price mb-4">
 		<div class="position-relative">
@@ -9,24 +9,23 @@
 		</div>
 		
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="under-25" name="price" checked="true">
+			<input type="radio" class="custom-control-input" id="under-25" name="price" value="under-25" ngModel>
 			<label class="custom-control-label" for="under-25">Under $25</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="from-25-to-50" name="price">
+			<input type="radio" class="custom-control-input" id="from-25-to-50" name="price" value="from-25-to-50" ngModel>
 			<label class="custom-control-label" for="from-25-to-50">$25 to $50</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="from-50-to-250" name="price">
+			<input type="radio" class="custom-control-input" id="from-50-to-250" name="price" value="from-50-to-250" ngModel>
 			<label class="custom-control-label" for="from-50-to-250">$50 to $250</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="greater-than-250" name="price">
+			<input type="radio" class="custom-control-input" id="greater-than-250" name="price" value="greater-than-250" ngModel>
 			<label class="custom-control-label" for="greater-than-250">Greater than $250</label>
 		</div>
 
 	</div> <!-- End of Price -->
-
 
 	<!-- Category -->
 	<div class="categories mb-4">
@@ -38,27 +37,27 @@
 		</div>
 
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="mobile-phones" name="category" checked="true">
+			<input type="radio" class="custom-control-input" id="mobile-phones" name="category" value="mobile-phones" ngModel>
 			<label class="custom-control-label" for="mobile-phones">Mobile phones</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="beauty" name="category">
+			<input type="radio" class="custom-control-input" id="beauty" name="category" value="beauty" ngModel>
 			<label class="custom-control-label" for="beauty">Beauty</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="entertainment" name="category">
+			<input type="radio" class="custom-control-input" id="entertainment" name="category" value="entertainment" ngModel>
 			<label class="custom-control-label" for="entertainment">Entertainment</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="fashion" name="category">
+			<input type="radio" class="custom-control-input" id="fashion" name="category" value="fashion" ngModel>
 			<label class="custom-control-label" for="fashion">Fashion</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="books" name="category">
+			<input type="radio" class="custom-control-input" id="books" name="category" value="books" ngModel>
 			<label class="custom-control-label" for="books">Books</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="baby" name="category">
+			<input type="radio" class="custom-control-input" id="baby" name="category" value="baby" ngModel>
 			<label class="custom-control-label" for="baby">Baby</label>
 		</div>
 
@@ -74,37 +73,41 @@
 		</div>
 		
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="apple" name="brand" value="apple" checked="true">
+			<input type="radio" class="custom-control-input" id="all" name="brand" value="all" ngModel>
+			<label class="custom-control-label" for="all">All</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="samsung" name="brand" value="samsung" ngModel>
+			<label class="custom-control-label" for="samsung">Samsung</label>
+		</div>	
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="apple" name="brand" value="apple" ngModel>
 			<label class="custom-control-label" for="apple">Apple</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="samsung" name="brand" value="samsung">
-			<label class="custom-control-label" for="samsung">Samsung</label>
-		</div>
-		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="microsoft" name="brand" value="microsoft">
-			<label class="custom-control-label" for="microsoft">Microsoft</label>
-		</div>
-		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="hermes" name="brand" value="hermes">
-			<label class="custom-control-label" for="hermes">Hermes</label>
-		</div>
-		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="acer" name="brand" value="acer">
+			<input type="radio" class="custom-control-input" id="acer" name="brand" value="acer" ngModel>
 			<label class="custom-control-label" for="acer">Acer</label>
 		</div>
 		<div class="d-block custom-control custom-radio">
-			<input type="radio" class="custom-control-input" id="homebrand" name="brand" value="homebrand">
-			<label class="custom-control-label" for="homebrand">Homebrand</label>
+			<input type="radio" class="custom-control-input" id="maybelline" name="brand" value="maybelline" ngModel>
+			<label class="custom-control-label" for="maybelline">Maybelline</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="neutrogena" name="brand" value="neutrogena" ngModel>
+			<label class="custom-control-label" for="neutrogena">Neutrogena</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="nixon" name="brand" value="nixon" ngModel>
+			<label class="custom-control-label" for="nixon">Nixon</label>
+		</div>
+		<div class="d-block custom-control custom-radio">
+			<input type="radio" class="custom-control-input" id="vans" name="brand" value="vans" ngModel>
+			<label class="custom-control-label" for="vans">Vans</label>
 		</div>
 
 	</div> <!-- End of Brand -->
 
-	<input class="btn btn-primary add-to-cart" type="submit" value="Search">
+	<button class="btn btn-primary add-to-cart" type="submit">Refine Search</button>
 
 </form>
-
-
-
-
 

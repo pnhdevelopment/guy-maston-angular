@@ -23,6 +23,7 @@
         "styles.sass"
       ],
       "scripts": [
+        "../src/assets/svg4everybody.min.js",
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
       ],

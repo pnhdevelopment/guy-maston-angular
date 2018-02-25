@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
-
-import { PRODUCTS } from '../mock-products';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -12,26 +10,28 @@ import { PRODUCTS } from '../mock-products';
 })
 export class ProductComponent implements OnInit {
 
-  products = PRODUCTS;
   slug: string;
   product: any;
+  URL: string;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
   ngOnInit() {
   	this.slug = this.route.snapshot.params.slug;
-  	this.product = this.products.filter(x => x.slug == this.slug)[0];
+    console.log(this.slug);
+    this.URL = "https://immense-cliffs-99743.herokuapp.com/items?title_slug=" + this.slug;
+    console.log(this.URL);
 
-    // if(!this.product){
-    //   this.router.navigate(['/404']);
-    // }
-    
-    console.log(this.product);
-  	console.log(this.slug);
+    this.http.get(this.URL).subscribe(data => {
+      this.product = data[0];
+      console.log(this.product);
+    });
 
-    
+  }
 
-
+  // Fadein for image thumbnail
+  changeOpacity(img) {
+    img.style.opacity = 1;
   }
 
 }

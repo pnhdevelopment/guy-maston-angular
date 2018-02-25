@@ -1,5 +1,9 @@
+<div *ngIf="!items">
+  <div class="loader"></div>
+</div>
+
 <!-- Mobile phones -->
-<div class="row">
+<div class="row" *ngIf="items">
 
   <!-- Title -->
   <div class="col-lg-12">
@@ -19,16 +23,23 @@
 
   <!-- Item -->
   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('mobile-phones') | slice:0:6">
-    <a routerLink="product/{{product.slug}}">
-      <img src="{{product.url}}" alt="">
+    <a routerLink="product/{{product.title_slug}}">
+      <div class="img-wrapper">
+        <img 
+          src="{{product.images['550px']}}" alt=""
+          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
+          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          #img (load)="changeOpacity(img)"
+        >
+      </div>
     </a>
     <div class="product-info">
-      <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+      <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
 	      <div>
-		      <span class="reduced-price mr-2">${{product.price}}</span>
-		      <del class="previous-price">${{product.previous_price}}</del>
+		      <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+		      <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
 	      </div>
-	      <button class="btn btn-primary add-to-cart">Add to cart</button>
+	      <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
     </div>
   </div>  <!-- End of item -->
 
@@ -39,7 +50,7 @@
 
 
 <!-- Beauty -->
-<div class="row">
+<div class="row" *ngIf="items">
 
   <!-- Category title -->
   <div class="col-lg-12">
@@ -59,16 +70,23 @@
 
   <!-- Item -->
   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('beauty') | slice:0:6">
-    <a href="#">
-      <img src="{{product.url}}" alt="">
+    <a routerLink="product/{{product.title_slug}}">
+      <div class="img-wrapper">
+        <img 
+          src="{{product.images['550px']}}" alt=""
+          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
+          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          #img (load)="changeOpacity(img)"
+        >
+      </div>
     </a>
     <div class="product-info">
-      <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+      <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
         <div>
-          <span class="reduced-price mr-2">${{product.price}}</span>
-          <del class="previous-price">${{product.previous_price}}</del>
+          <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+          <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
         </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
     </div>
   </div> <!-- End of item -->
 
@@ -78,7 +96,7 @@
 
 
 <!-- Entertainment -->
-<div class="row">
+<div class="row" *ngIf="items">
 
   <!-- Category title -->
   <div class="col-lg-12">
@@ -98,16 +116,23 @@
 
   <!-- Item -->
   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('entertainment') | slice:0:6">
-    <a href="#">
-      <img src="{{product.url}}" alt="">
+    <a routerLink="product/{{product.title_slug}}">
+      <div class="img-wrapper">
+        <img 
+          src="{{product.images['550px']}}" alt=""
+          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
+          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          #img (load)="changeOpacity(img)"
+        >
+      </div>
     </a>
     <div class="product-info">
-      <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+      <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
         <div>
-          <span class="reduced-price mr-2">${{product.price}}</span>
-          <del class="previous-price">${{product.previous_price}}</del>
+          <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+          <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
         </div>
-        <button class="btn btn-primary add-to-cart">Add to cart</button>
+        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
     </div>
   </div> <!-- End of item -->
 
@@ -116,7 +141,7 @@
 
 
 <!-- Fashion -->
-<div class="row">
+<div class="row" *ngIf="items">
 
   <!-- Category title -->
   <div class="col-lg-12">
@@ -136,18 +161,23 @@
 
   <!-- Item -->
   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('fashion') | slice:0:6">
-    <div *ngIf="product.category_slug == 'fashion'">
-      <a href="#">
-        <img src="{{product.url}}" alt="">
-      </a>
-      <div class="product-info">
-        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
-          <div>
-            <span class="reduced-price mr-2">${{product.price}}</span>
-            <del class="previous-price">${{product.previous_price}}</del>
-          </div>
-          <button class="btn btn-primary add-to-cart">Add to cart</button>
+    <a routerLink="product/{{product.title_slug}}">
+      <div class="img-wrapper">
+        <img 
+          src="{{product.images['550px']}}" alt=""
+          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
+          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          #img (load)="changeOpacity(img)"
+        >
       </div>
+    </a>
+    <div class="product-info">
+      <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
+        <div>
+          <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+          <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
+        </div>
+        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
     </div>
   </div> <!-- End of item -->
 
@@ -157,7 +187,7 @@
 
 
 <!-- Books -->
-<div class="row">
+<div class="row" *ngIf="items">
 
   <!-- Category title -->
   <div class="col-lg-12">
@@ -177,18 +207,23 @@
 
   <!-- Item -->
   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('books') | slice:0:6">
-    <div *ngIf="product.category_slug == 'books'">
-      <a href="#">
-        <img src="{{product.url}}" alt="">
-      </a>
-      <div class="product-info">
-        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
-          <div>
-            <span class="reduced-price mr-2">${{product.price}}</span>
-            <del class="previous-price">${{product.previous_price}}</del>
-          </div>
-          <button class="btn btn-primary add-to-cart">Add to cart</button>
+    <a routerLink="product/{{product.title_slug}}">
+      <div class="img-wrapper">
+        <img 
+          src="{{product.images['550px']}}" alt=""
+          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
+          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          #img (load)="changeOpacity(img)"
+        >
       </div>
+    </a>
+    <div class="product-info">
+      <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
+        <div>
+          <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+          <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
+        </div>
+        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
     </div>
   </div> <!-- End of item -->
 
@@ -198,7 +233,7 @@
 
 
 <!-- Baby -->
-<div class="row">
+<div class="row" *ngIf="items">
 
   <!-- Category title -->
   <div class="col-lg-12">
@@ -218,19 +253,24 @@
 
   <!-- Item -->
   <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('baby') | slice:0:6">
-    <div *ngIf="product.category_slug == 'baby'">
-      <a href="#">
-        <img src="{{product.url}}" alt="">
+      <a routerLink="product/{{product.title_slug}}">
+        <div class="img-wrapper">
+          <img 
+            src="{{product.images['550px']}}" alt=""
+            srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
+            sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+            #img (load)="changeOpacity(img)"
+          >
+        </div>
       </a>
       <div class="product-info">
-        <h5 class="mt-1"><a href="#">{{product.title}}</a></h5>
+        <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
           <div>
-            <span class="reduced-price mr-2">${{product.price}}</span>
-            <del class="previous-price">${{product.previous_price}}</del>
+            <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+            <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
           </div>
-          <button class="btn btn-primary add-to-cart">Add to cart</button>
+          <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
       </div>
-    </div>
   </div> <!-- End of item -->
 
 

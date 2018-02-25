@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-form',
@@ -7,14 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router){ }
 
   ngOnInit() {
   }
 
-  processSearch(e){
-  	e.preventDefault();
-  	console.log(e.target.elements);
+  refineSearch(f:NgForm){
+
+    console.log(f.value.category);
+    console.log(f.value.brand);
+
+    this.router.navigate(['/search'], { queryParams: { category: f.value.category, brand: f.value.brand, price: f.value.price } });
+  
   }
+
 
 }

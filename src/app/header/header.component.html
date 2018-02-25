@@ -10,12 +10,22 @@
 		<!-- Links -->
 		<div class="col-lg-6 col-md-6 col-sm-12 admin my-auto text-xl-right text-lg-right text-md-right text-center">
 
+			<!-- Log out -->
+			<div *ngIf="auth.afAuth.authState | async; else showLogin" class="d-inline">
+				<a (click)="auth.logout()" class="align-middle">
+					<svg class="icon"><use xlink:href="assets/sprite.svg#sign-in"></use></svg>
+					<span>Logout</span>
+				</a>
+			</div>
+			
 			<!-- Sign in -->
-			<a routerLink="sign-in" class="align-middle">
-				<svg class="icon"><use xlink:href="assets/sprite.svg#sign-in"></use></svg>
-				<span>Sign in</span>
-			</a>
-
+			<ng-template #showLogin>
+				<a (click)="auth.login()" class="align-middle">
+					<svg class="icon"><use xlink:href="assets/sprite.svg#sign-in"></use></svg>
+					<span>Sign in</span>
+				</a>
+			</ng-template>
+			
 			<!-- Cart -->
 			<a routerLink="cart" class="align-middle">
 				<svg class="icon"><use xlink:href="assets/sprite.svg#cart"></use></svg>
@@ -28,9 +38,9 @@
 	<!-- Search form -->
 	<div class="row justify-content-end">
 		<div class="col-lg-4 col-md-6 col-sm-12 admin pt-md-0 pt-sm-3 pt-3">
-			<form>
+			<form #f="ngForm" (ngSubmit)="submitValue(f)">
 				<div class="input-group">
-					<input type="text" name="search" placeholder="Search" class="form-control">
+					<input type="text" name="q" ngModel placeholder="Search" class="form-control">
 					<span class="input-group-btn">
 						<button type="submit" class="btn btn-primary">Search</button>
 					</span> 

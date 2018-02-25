@@ -12,16 +12,16 @@
                     <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="">Categories</a>
+                    <a class="nav-link" routerLink="search">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="">New Projects</a>
+                    <a class="nav-link" routerLink="search" [queryParams]="{ new: 1 }">New Items</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="">Special Offers</a>
+                    <a class="nav-link" routerLink="search" [queryParams]="{ special: 1 }">Special Offers</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="">My Account</a>
+                    <a class="nav-link" (click)="auth.login()">My Account</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="enquiries" fragment="faq">FAQ</a>

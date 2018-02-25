@@ -2,20 +2,21 @@
 <div class="container-fluid" id="search-header">
 	<div class="row align-items-center">
     	<div class="col-lg-4 col-md-4 col-sm-6 text-xl-left text-lg-left text-md-left text-center py-2 px-0">
-    	  Results for "phones"
+    	  
+          <span *ngIf="showQuery">Results for "{{showQuery}}"</span>
     	</div>
 
     	<div class="col-lg-4 col-md-4 col-sm-6 py-2 text-center">
-    	  <span>2434 items found</span>
+    	   <span *ngIf="items && items.length !== 1">{{items.length}} items found</span>
+           <span *ngIf="items && items.length == 1">1 item found</span>
     	</div>
 
     	<div class="col-lg-4 col-md-4 col-sm-12 px-0 py-2 text-center">
     		<div class="text-center float-md-right">
-    			<select class="form-control d-inline-block">
-    				<option value="husker">Order by</option>
-      				<option value="starbuck">Cheapest</option>
-      				<option value="hotdog">Most expensive</option>
-      				<option value="apollo">Apollo</option>
+    			<select class="form-control d-inline-block" #orderBy (change)="onSelectChange(orderBy.value)">
+    				  <option value="">Order by</option>
+      				<option value="asc">Cheapest</option>
+      				<option value="desc">Most expensive</option>
     			</select>
 			</div>
 
@@ -27,11 +28,164 @@
 <!-- Search form -->
 <div class="row">
     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12">
-    	<app-search-form></app-search-form>
+    	<form #f="ngForm" (ngSubmit)="refineSearch(f)">
+            <!-- Price -->
+            <div class="price mb-4">
+                <div class="position-relative">
+                    <h4 class="mb-3 pb-2">
+                        <span>Price</span>
+                    </h4>
+                    <hr>
+                </div>
+                
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="under-25" name="price" value="under-25" ngModel>
+                    <label class="custom-control-label" for="under-25">Under $25</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="from-25-to-50" name="price" value="from-25-to-50" ngModel>
+                    <label class="custom-control-label" for="from-25-to-50">$25 to $50</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="from-50-to-250" name="price" value="from-50-to-250" ngModel>
+                    <label class="custom-control-label" for="from-50-to-250">$50 to $250</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="greater-than-250" name="price" value="greater-than-250" ngModel>
+                    <label class="custom-control-label" for="greater-than-250">Greater than $250</label>
+                </div>
+
+            </div> <!-- End of Price -->
+
+            <!-- Category -->
+            <div class="categories mb-4">
+                <div class="position-relative">
+                    <h4 class="mb-3 pb-2">
+                        <span>Category</span>
+                    </h4>
+                    <hr>
+                </div>
+
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="mobile-phones" name="category" value="mobile-phones" ngModel>
+                    <label class="custom-control-label" for="mobile-phones">Mobile phones</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="beauty" name="category" value="beauty" ngModel>
+                    <label class="custom-control-label" for="beauty">Beauty</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="entertainment" name="category" value="entertainment" ngModel>
+                    <label class="custom-control-label" for="entertainment">Entertainment</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="fashion" name="category" value="fashion" ngModel>
+                    <label class="custom-control-label" for="fashion">Fashion</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="books" name="category" value="books" ngModel>
+                    <label class="custom-control-label" for="books">Books</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="baby" name="category" value="baby" ngModel>
+                    <label class="custom-control-label" for="baby">Baby</label>
+                </div>
+
+            </div> <!-- End of Category -->
+
+            <!-- Brand -->
+            <div class="brand mb-4">
+                <div class="position-relative">
+                    <h4 class="mb-3 pb-2">
+                        <span>Brand</span>
+                    </h4>
+                    <hr>
+                </div>
+                
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="samsung" name="brand" value="samsung" ngModel>
+                    <label class="custom-control-label" for="samsung">Samsung</label>
+                </div>  
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="apple" name="brand" value="apple" ngModel>
+                    <label class="custom-control-label" for="apple">Apple</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="acer" name="brand" value="acer" ngModel>
+                    <label class="custom-control-label" for="acer">Acer</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="maybelline" name="brand" value="maybelline" ngModel>
+                    <label class="custom-control-label" for="maybelline">Maybelline</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="neutrogena" name="brand" value="neutrogena" ngModel>
+                    <label class="custom-control-label" for="neutrogena">Neutrogena</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="nixon" name="brand" value="nixon" ngModel>
+                    <label class="custom-control-label" for="nixon">Nixon</label>
+                </div>
+                <div class="d-block custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="vans" name="brand" value="vans" ngModel>
+                    <label class="custom-control-label" for="vans">Vans</label>
+                </div>
+
+            </div> <!-- End of Brand -->
+
+            <button class="btn btn-primary add-to-cart" type="submit">Refine Search</button>
+
+        </form>
+
     </div> 
 
 	<!-- Gallery and pagination -->
 	<div class="col-xl-10 col-lg-10 col-md-8 col-sm-12">
-		<app-search-results></app-search-results>
+		
+        <div *ngIf="!items">
+          <div class="loader"></div>
+        </div>
+
+        <div *ngIf="items">
+            <!-- No results found -->
+            <div class="row" *ngIf="items.length == 0">
+                <div class="col-lg-12 text-center">
+                    <p class="font-italic">No results found.</p>
+                </div>
+            </div>
+
+            <!-- Search results -->
+            <div class="row">
+                <!-- Item -->
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-4" *ngFor="let item of items | paginate: { itemsPerPage: 20, currentPage: p }">
+                    <a href="/product/{{item.title_slug}}">
+                        <div class="img-wrapper" #img (load)="changeOpacity(img)">
+                            <img 
+                                src="{{item.images['550px']}}" alt=""
+                                srcset="{{item.images['550px']}} 550w, {{item.images['300px']}} 300w"
+                                sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+                                #img (load)="changeOpacity(img)"
+                            >
+                        </div>
+                    </a>
+                    <div class="product-info">
+                        <h5 class="mt-1"><a href="/product/{{item.title_slug}}">{{item.title}}</a></h5>
+                        <div>
+                            <span class="reduced-price mr-2">${{item.price | number : '1.2-2'}}</span>
+                            <del class="previous-price">${{item.previous_price | number : '1.2-2'}}</del>
+                        </div>
+                        <button class="btn btn-primary add-to-cart" (click)="addToCart(item)">Add to cart</button>
+                    </div>
+                </div> <!-- End item -->
+            </div> <!-- End search results -->
+             
+            <!-- Pagination -->
+            <div class="row" *ngIf="items.length > 0">
+                <div class="col-lg-12 text-center">
+                    <pagination-controls class="my-pagination" (click)="scrollUp()" (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+
 	</div>
 </div> <!-- Search form -->

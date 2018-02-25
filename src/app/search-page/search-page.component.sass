@@ -1,3 +1,58 @@
+@import "~variables.sass"
+
+
+// Search header
 #search-header
 	border-bottom: 1px solid black
 	margin-bottom: 1.5rem
+
+
+
+// Search form
+.custom-control-input:active~.custom-control-label::before
+	background-color: #ffb3c2
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before
+	background-color: $red
+
+.custom-control-input:checked~.custom-control-label::before
+	background-color: $red
+
+h4
+	border-bottom: 1px solid black
+
+hr
+	width: 60px
+	float: left
+	margin: 0
+	position: absolute
+	bottom: -2px
+	border-top: 5px solid $red
+	border-bottom: 0
+	border-left: 0
+	border-right: 0
+
+
+
+// Search results
+img
+	width: 100%
+
+.previous-price
+	color: orange
+	font-size: 0.8rem
+    
+
+.add-to-cart
+	margin-top: 0.5rem
+	padding: 0.2rem 0.8rem
+	font-size: 0.8rem
+
+.product-info a
+	color: black
+	text-decoration: none
+
+
+// Pagination
+.my-pagination /deep/ .ngx-pagination .current
+	background: $red

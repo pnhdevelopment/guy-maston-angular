@@ -4,11 +4,17 @@
 
 
 /* Sticks footer (of variable width) to bottom of page */
-body, .wrapper
-	min-height: 100vh
+#wrapper
+  width: 100%
+  min-height: 100vh
+  display: -webkit-flex
+  display: flex
+  -webkit-flex-direction: column
+  flex-direction: column
 
 main
-	flex: 1
+  -webkit-flex-grow: 1
+  flex-grow: 1
 
 
 /* Shopping cart and search buttons */
@@ -19,3 +25,34 @@ main
 .btn.btn-primary:hover, .btn-primary:not([disabled]):not(.disabled):active
 	background-color: $deep-red
 	border-color: $deep-red
+
+
+/* Item thumbnails */
+.img-wrapper
+	background: #f2f2f2
+	position: relative
+	width: 100%
+	padding-bottom: 100%
+
+	img
+		width: 100%
+		opacity: 1
+		transition: 0.5s
+		position: absolute
+		top: 0
+
+
+/* Loading icon for pages */
+.loader 
+	border: 8px solid #f3f3f3
+	border-radius: 50%
+	border-top: 8px solid $red
+	width: 60px
+	height: 60px
+	-webkit-animation: spin 1.3s linear infinite /* Safari */
+	animation: spin 1.3s linear infinite
+	margin: auto
+
+@keyframes spin 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
