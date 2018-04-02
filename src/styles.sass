@@ -1,7 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~variables.sass" //must be imported on all pages that use these variables, since these values won't cascade into other stylesheets
+/* Bootstrap partials (only the necessary ones) */
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+@import '../node_modules/bootstrap/scss/root';
+@import '../node_modules/bootstrap/scss/reboot';
+@import '../node_modules/bootstrap/scss/type';
+@import '../node_modules/bootstrap/scss/grid';
+@import '../node_modules/bootstrap/scss/forms';
+@import '../node_modules/bootstrap/scss/buttons';
+@import '../node_modules/bootstrap/scss/transitions';
+@import '../node_modules/bootstrap/scss/button-group';
+@import '../node_modules/bootstrap/scss/input-group';
+@import '../node_modules/bootstrap/scss/custom-forms';
+@import '../node_modules/bootstrap/scss/nav';
+@import '../node_modules/bootstrap/scss/navbar';
+@import '../node_modules/bootstrap/scss/pagination';
+@import '../node_modules/bootstrap/scss/utilities';
 
+
+/* Global variables */
+@import "~variables.sass" //must be imported on all pages that use these variables, since these values won't cascade into other stylesheets
 
 /* Sticks footer (of variable width) to bottom of page */
 #wrapper
@@ -21,6 +41,7 @@ main
 .btn.btn-primary
 	background-color: $red
 	border-color: $red
+	cursor: pointer
 
 .btn.btn-primary:hover, .btn-primary:not([disabled]):not(.disabled):active
 	background-color: $deep-red

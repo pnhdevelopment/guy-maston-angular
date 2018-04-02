@@ -4,18 +4,18 @@
 
 <!-- Large image thumbnail -->
 <div class="row mb-2" *ngIf="product">
-	<div class="col-lg-5 col-md-6 mb-3">
+	<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
 		<div class="img-wrapper">
 			<img 
-				src="{{product.images['800px']}}" alt=""
+				src="{{product.images['550px']}}" alt="{{product.title}}"
 				srcset="{{product.images['800px']}} 800w, {{product.images['550px']}} 550w"
-				sizes="(max-width: 599px) 550px, (min-width: 600px) 800px"
+				sizes="(max-width: 576px) 800px, (min-width: 577px) 550px"
 				#img (load)="changeOpacity(img)"
         	>
 		</div>
 	</div>
 
-	<div class="col-lg-7 col-md-6">
+	<div class="col-12 col-sm-6 col-lg-8 col-xl-9">
 		<!-- Title -->
 		<div class="position-relative">
 			<h4 class="mb-3 pb-2">{{product.title}}</h4>

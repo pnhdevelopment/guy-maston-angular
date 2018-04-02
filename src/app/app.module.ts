@@ -24,7 +24,6 @@ import { HomeComponent } from './home/home.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SearchFormComponent } from './search-form/search-form.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { CartComponent } from './cart/cart.component';
 import { EnquiriesComponent } from './enquiries/enquiries.component';
 import { PoliciesComponent } from './policies/policies.component';
@@ -62,7 +61,6 @@ var firebaseConfig = {
     SearchPageComponent,
     PageNotFoundComponent,
     SearchFormComponent,
-    SearchResultsComponent,
     CartComponent,
     EnquiriesComponent,
     PoliciesComponent,

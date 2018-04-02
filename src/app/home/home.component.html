@@ -6,7 +6,7 @@
 <div class="row" *ngIf="items">
 
   <!-- Title -->
-  <div class="col-lg-12">
+  <div class="col-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#phones"></use></svg>
@@ -20,15 +20,12 @@
     </div>
   </div> <!-- Title -->
 
-
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('mobile-phones') | slice:0:6">
+  <div class="col-6 col-sm-4 col-md-3 col-xl-2 mb-4" *ngFor="let product of filterItemsOfCategory('mobile-phones') | slice:0:6">
     <a routerLink="product/{{product.title_slug}}">
       <div class="img-wrapper">
         <img 
-          src="{{product.images['550px']}}" alt=""
-          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
-          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          src="{{product.images['300px']}}" alt="{{product.title}}"
           #img (load)="changeOpacity(img)"
         >
       </div>
@@ -53,7 +50,7 @@
 <div class="row" *ngIf="items">
 
   <!-- Category title -->
-  <div class="col-lg-12">
+  <div class="col-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#beauty"></use></svg>
@@ -69,13 +66,11 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('beauty') | slice:0:6">
+  <div class="col-6 col-sm-4 col-md-3 col-xl-2 mb-4" *ngFor="let product of filterItemsOfCategory('beauty') | slice:0:6">
     <a routerLink="product/{{product.title_slug}}">
       <div class="img-wrapper">
         <img 
-          src="{{product.images['550px']}}" alt=""
-          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
-          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          src="{{product.images['300px']}}" alt="{{product.title}}"
           #img (load)="changeOpacity(img)"
         >
       </div>
@@ -99,7 +94,7 @@
 <div class="row" *ngIf="items">
 
   <!-- Category title -->
-  <div class="col-lg-12">
+  <div class="col-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#entertainment"></use></svg>
@@ -115,13 +110,11 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('entertainment') | slice:0:6">
+  <div class="col-6 col-sm-4 col-md-3 col-xl-2 mb-4" *ngFor="let product of filterItemsOfCategory('entertainment') | slice:0:6">
     <a routerLink="product/{{product.title_slug}}">
       <div class="img-wrapper">
         <img 
-          src="{{product.images['550px']}}" alt=""
-          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
-          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          src="{{product.images['300px']}}" alt="{{product.title}}"
           #img (load)="changeOpacity(img)"
         >
       </div>
@@ -144,7 +137,7 @@
 <div class="row" *ngIf="items">
 
   <!-- Category title -->
-  <div class="col-lg-12">
+  <div class="col-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#fashion"></use></svg>
@@ -160,13 +153,12 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('fashion') | slice:0:6">
+  <div class="col-6 col-sm-4 col-md-3 col-xl-2 mb-4" *ngFor="let product of filterItemsOfCategory('fashion') | slice:0:6">
     <a routerLink="product/{{product.title_slug}}">
       <div class="img-wrapper">
         <img 
-          src="{{product.images['550px']}}" alt=""
-          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
-          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          src="{{product.images['300px']}}" alt="{{product.title}}"
+
           #img (load)="changeOpacity(img)"
         >
       </div>
@@ -190,7 +182,7 @@
 <div class="row" *ngIf="items">
 
   <!-- Category title -->
-  <div class="col-lg-12">
+  <div class="col-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#books"></use></svg>
@@ -206,13 +198,11 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('books') | slice:0:6">
+  <div class="col-6 col-sm-4 col-md-3 col-xl-2 mb-4" *ngFor="let product of filterItemsOfCategory('books') | slice:0:6">
     <a routerLink="product/{{product.title_slug}}">
       <div class="img-wrapper">
         <img 
-          src="{{product.images['550px']}}" alt=""
-          srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
-          sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+          src="{{product.images['300px']}}" alt="{{product.title}}"
           #img (load)="changeOpacity(img)"
         >
       </div>
@@ -236,7 +226,7 @@
 <div class="row" *ngIf="items">
 
   <!-- Category title -->
-  <div class="col-lg-12">
+  <div class="col-12">
     <div class="position-relative">
       <h4 class="mb-3 pb-2">
           <svg class="category-icon"><use xlink:href="assets/sprite.svg#baby"></use></svg>
@@ -252,13 +242,11 @@
 
 
   <!-- Item -->
-  <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-xs-4 mb-4" *ngFor="let product of filterItemsOfCategory('baby') | slice:0:6">
+  <div class="col-6 col-sm-4 col-md-3 col-xl-2 mb-4" *ngFor="let product of filterItemsOfCategory('baby') | slice:0:6">
       <a routerLink="product/{{product.title_slug}}">
         <div class="img-wrapper">
           <img 
-            src="{{product.images['550px']}}" alt=""
-            srcset="{{product.images['550px']}} 550w, {{product.images['300px']}} 300w"
-            sizes="(max-width: 576px) 550px, (min-width: 575px) 300px"
+            src="{{product.images['300px']}}" alt="{{product.title}}"
             #img (load)="changeOpacity(img)"
           >
         </div>

@@ -4,7 +4,7 @@
 
 	<!-- Title -->
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-12">
 			<div class="position-relative">
 				<h1 class="mb-3 pb-2">
 					<span>Your cart</span>
@@ -17,10 +17,10 @@
 	<!-- Cart (if logged in) -->
 	<div *ngIf="auth.afAuth.authState | async; else showLogin">
 		<div class="row mb-4" *ngFor="let item of cartItems">
-			<div class="col-lg-4 col-md-4 col-sm-6 pb-2">
+			<div class="col-sm-6 col-md-4 pb-2">
 				<img src="{{item.images['550px']}}" alt="">
 			</div>
-			<div class="col-lg-8 col-md-8 col-sm-6">
+			<div class="col-sm-6 col-md-8">
 				<h3 class="mb-3 pb-2">{{item.title}}</h3>
 				<p>{{item.description}}</p>
 				<div class="row align-items-end justify-content-between">
@@ -70,20 +70,6 @@
 	</ng-template>
 
 </div> <!-- End of container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

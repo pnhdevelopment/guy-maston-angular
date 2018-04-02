@@ -1,0 +1,3 @@
+Heroku:
+lemnok50
+lemnok1992
