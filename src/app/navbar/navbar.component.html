@@ -2,11 +2,17 @@
 
     <nav class="navbar navbar-expand-md navbar-light my-3">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div (click)="toggle()" class="navbar-toggler">
+            <div id="navbar-toggler-wrapper">
+                <div class="main-item menu" [ngClass]="{'closed': show }">
+                    <span class="line line01"></span>
+                    <span class="line line02"></span>
+                    <span class="line line03"></span>
+                </div>
+            </div>
+        </div>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-collapse" [ngClass]="{'show': show }" >
             <ul class="navbar-nav text-md-center nav-justified w-100">
                 <li class="nav-item active">
                     <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>

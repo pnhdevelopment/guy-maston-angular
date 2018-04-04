@@ -13,4 +13,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  //toggles the mobile navbar
+  show:boolean = false;
+
+  toggle(){
+  	this.show = !this.show
+  }
+
 }

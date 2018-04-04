@@ -9,19 +9,9 @@
 
 
 /* Search form */
-.custom-control-input:active~.custom-control-label::before
-	background-color: #ffb3c2
-
-.custom-radio .custom-control-input:checked~.custom-control-label::before
-	background-color: $red
-
-.custom-control-input:checked~.custom-control-label::before
-	background-color: $red
-
 
 .criteria-title
 	cursor: pointer
-
 
 h4
 	border-bottom: 1px solid black
@@ -37,7 +27,6 @@ hr
 	border-left: 0
 	border-right: 0
 
-
 .chevron
 	right: 10px
 	position: absolute
@@ -52,21 +41,31 @@ hr
 	transform: rotate(-45deg)
 	transition: 0.2s
 
-.chevron.active::before
+.chevron.active::before //causes the chevron to rotate
 	transform: rotate(135deg)
 
 
-
-.radio-buttons
+.radio-buttons-wrapper
 	max-height: 0
 	opacity: 0
 	overflow: hidden
 	transition: 0.2s
 
-.show
+.show //causes the search radio buttons to show
 	max-height: 200px
 	opacity: 1
 
+
+
+
+.custom-control-input:active~.custom-control-label::before
+	background-color: #ffb3c2
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before
+	background-color: $red
+
+.custom-control-input:checked~.custom-control-label::before
+	background-color: $red
 
 
 
