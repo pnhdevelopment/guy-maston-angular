@@ -18,6 +18,11 @@
 .custom-control-input:checked~.custom-control-label::before
 	background-color: $red
 
+
+.criteria-title
+	cursor: pointer
+
+
 h4
 	border-bottom: 1px solid black
 
@@ -31,6 +36,38 @@ hr
 	border-bottom: 0
 	border-left: 0
 	border-right: 0
+
+
+.chevron
+	right: 10px
+	position: absolute
+
+.chevron::before
+	border-style: solid
+	border-width: 4px 4px 0 0
+	content: ''
+	display: inline-block
+	height: 13px
+	width: 13px
+	transform: rotate(-45deg)
+	transition: 0.2s
+
+.chevron.active::before
+	transform: rotate(135deg)
+
+
+
+.radio-buttons
+	max-height: 0
+	opacity: 0
+	overflow: hidden
+	transition: 0.2s
+
+.show
+	max-height: 200px
+	opacity: 1
+
+
 
 
 
@@ -53,6 +90,6 @@ img
 	text-decoration: none
 
 
-/* Pagination /*
+// Pagination 
 .my-pagination /deep/ .ngx-pagination .current
 	background: $red

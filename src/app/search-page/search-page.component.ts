@@ -84,6 +84,12 @@ export class SearchPageComponent implements OnInit {
     this.cart.addToCart(item);
   }
 
+  //toggles the price, category and brand
+  toggle(el){
+    el.querySelector('.chevron').classList.toggle("active");
+    el.nextElementSibling.classList.toggle("show");
+  }
+
   scrollUp(){
     window.scroll({
       top: 0, 
