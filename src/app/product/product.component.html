@@ -2,6 +2,7 @@
   <div class="loader"></div>
 </div>
 
+
 <!-- Large image thumbnail -->
 <div class="row mb-2" *ngIf="product">
 	<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-3">
@@ -14,27 +15,72 @@
         	>
 		</div>
 	</div>
+	
 
+	<!-- Product info -->
 	<div class="col-12 col-sm-6 col-lg-8 col-xl-9">
+
+
 		<!-- Title -->
 		<div class="position-relative">
 			<h4 class="mb-3 pb-2">{{product.title}}</h4>
 			<hr>
 		</div>
-		
-		<!-- Product description -->
-		{{product.description}}
-		
+
 		<!-- Price -->
 		<div>
 	      <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
 	      <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
       	</div>
 
-      	<!-- Add to cart button -->
+		<div style="height: 200px; margin-top: 1rem">
+	      	<ul class="tab">
+			  <li>
+			    <a class="tablinks active" (click)="openTab($event, 'description')">Description</a>
+			    <div id="description" class="tabcontent isVisible">
+			      <h3>Description</h3>
+			      <!-- Product description -->
+			      <p>{{product.description}}</p>
+			    </div>
+			  </li>
+			  
+			  <li>
+			    <a class="tablinks" (click)="openTab($event, 'technical')">Technical</a>
+			    <div id="technical" class="tabcontent">
+			      <h3>Technical</h3>
+			      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores ut adipisci itaque quasi nostrum repellendus ipsum corrupti, explicabo unde voluptatem.</p> 
+			    </div>
+			  </li>
+			  
+			  <li>
+			    <a class="tablinks" (click)="openTab($event, 'other')">Other</a>
+			    
+			    <div id="other" class="tabcontent">
+			      <h3>Other</h3>
+			      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis esse sed officia maiores?</p>
+			    </div>
+			    
+			  </li>
+			</ul>
+		</div>
+
+		<!-- Add to cart button -->
       	<button class="btn btn-primary add-to-cart">Add to cart</button>
-	</div>
+
+
+	</div> <!-- End of product info -->
+
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 

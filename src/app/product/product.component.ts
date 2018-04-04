@@ -29,6 +29,21 @@ export class ProductComponent implements OnInit {
 
   }
 
+  // controls tabs
+  openTab(event, cityName){
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.opacity = 0;
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tabcontent.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.opacity = "1";
+    event.currentTarget.className += " active";
+  }
+
   // Fadein for image thumbnail
   changeOpacity(img) {
     img.style.opacity = 1;
