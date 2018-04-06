@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { ElementRef } from '@angular/core';
 
 @Injectable()
 export class CartService {

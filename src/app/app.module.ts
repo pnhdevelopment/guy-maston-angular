@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularFireModule } from 'angularfire2';
@@ -71,6 +72,7 @@ var firebaseConfig = {
     RouterModule.forRoot(appRoutes),
     NgxPaginationModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,

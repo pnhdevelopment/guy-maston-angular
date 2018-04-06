@@ -22,21 +22,26 @@
 		<!-- Shopping cart -->
 		<div class="col-lg-4 col-md-12">
 			<h4 class="pb-2 mb-3"><img  class="icon" src="assets/cart-footer.svg" alt="">Your cart</h4>
-			<p>Your cart is empty</p>
+			<p>Click <a routerLink="/cart" class="click-to-view-cart">here</a> to view your cart.</p>
 		</div>
 
 		<!-- Subscribe to our newsletter -->
 		<div class="col-lg-4 col-md-12">
 			<h4 class="pb-2 mb-3"><img class="icon" src="assets/subscribe.svg" alt="">Subscribe to our newsletter</h4>
-
-			<form>
+			
+			<form [hidden]="submitted" [formGroup]="heroForm" (ngSubmit)="submitPost()">
 				<div class="input-group">
-					<input type="email" [(ngModel)]="email" name="email" placeholder="Email" class="form-control">
+					<input type="email" formControlName="email" placeholder="Email" class="form-control">
 					<span class="input-group-append">
-						<input type="submit" name="commit" value="Submit" (click)="addPost()" class="btn btn-primary">
+						<input type="submit" name="commit" value="Submit" class="btn btn-primary" [disabled]="heroForm.invalid">
 					</span> 
 				</div>
 			</form>
+				
+			<div [hidden]="!submitted" class="alert alert-success">
+				Form successfully submitted! Thank you!
+			</div>
+
 		</div>
 	</div>
 

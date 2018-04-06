@@ -23,6 +23,14 @@ a
   transition: 0.2s
   cursor: pointer
 
+a.click-to-view-cart
+  color: $red
+  border-bottom: 1px $red dotted;
+
+a.click-to-view-cart:hover
+  color: $deep-red
+  border-bottom: 1px $deep-red dotted;
+
 .quick-links a:hover, a:hover
   color: $red
 
@@ -37,3 +45,21 @@ a
 .icon
   width: 25px
   margin: 0 10px 0 0
+
+
+.alert
+  height: 38px
+  padding: 5px 10px
+
+
+/* Subscription form validation */
+input
+  transition: 0.75s
+
+input.ng-dirty.ng-invalid
+  border: 1px solid red
+  color: red
+
+input.ng-dirty.ng-valid
+  border: 1px solid green
+  color: green
