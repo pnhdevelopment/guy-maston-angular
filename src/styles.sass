@@ -77,3 +77,46 @@ main
 @keyframes spin 
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+
+
+
+/* Add to cart button */
+.add-to-cart
+	margin-top: 0.5rem
+	padding: 0.2rem 0.8rem
+	font-size: 0.8rem
+
+
+/* Tooltip for 'Item added to cart' */
+.add-to-cart
+    position: relative
+    display: inline-block
+
+.add-to-cart .tooltiptext
+    opacity: 0
+    transition: 0.2s
+    width: 120px
+    background-color: #242a32
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 5px 0
+    position: absolute
+    z-index: 1
+    bottom: 150%
+    left: 50%
+    margin-left: -60px
+    cursor: text
+
+.add-to-cart .tooltiptext::after
+    content: ""
+    position: absolute
+    top: 100%
+    left: 50%
+    margin-left: -5px
+    border-width: 5px
+    border-style: solid
+    border-color: #242a32 transparent transparent transparent
+
+.add-to-cart .tooltiptext.clicked
+      opacity: 1

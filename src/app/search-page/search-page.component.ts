@@ -80,9 +80,21 @@ export class SearchPageComponent implements OnInit {
     this.router.navigate(['search'], { queryParams: { _sort: 'price', _order: value }, queryParamsHandling: 'merge' });
   }
 
-  addToCart(item){
+  addToCart(el, item){
+    
+    //adds item to cart
     this.cart.addToCart(item);
+
+    //adds tooltip class so that 'Added to cart' message appears
+    el.childNodes[1].classList.add("clicked");
+
+    //removes tooltip class so that 'Added to cart' message disappears
+    setTimeout(function(){
+      el.childNodes[1].classList.remove("clicked");
+    }, 2000);
+
   }
+
 
   //toggles the price, category and brand
   toggle(el){

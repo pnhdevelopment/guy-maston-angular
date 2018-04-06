@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { CartService } from '../cart.service';
 
 
 @Component({
@@ -14,7 +15,11 @@ export class ProductComponent implements OnInit {
   product: any;
   URL: string;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private cart: CartService
+  ) { }
 
   ngOnInit() {
   	this.slug = this.route.snapshot.params.slug;
@@ -42,6 +47,21 @@ export class ProductComponent implements OnInit {
     }
     document.getElementById(cityName).style.opacity = "1";
     event.currentTarget.className += " active";
+  }
+
+  addToCart(el, item){
+    
+    //adds item to cart
+    this.cart.addToCart(item);
+
+    //adds tooltip class so that 'Added to cart' message appears
+    el.childNodes[1].classList.add("clicked");
+
+    //removes tooltip class so that 'Added to cart' message disappears
+    setTimeout(function(){
+      el.childNodes[1].classList.remove("clicked");
+    }, 2000);
+
   }
 
   // Fadein for image thumbnail

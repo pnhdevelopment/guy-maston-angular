@@ -33,7 +33,7 @@
 	      <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
       	</div>
 
-		<div style="height: 200px; margin-top: 1rem">
+		<div class="tab-wrapper">
 	      	<ul class="tab">
 			  <li>
 			    <a class="tablinks active" (click)="openTab($event, 'description')">Description</a>
@@ -63,9 +63,12 @@
 			  </li>
 			</ul>
 		</div>
-
+		
 		<!-- Add to cart button -->
-      	<button class="btn btn-primary add-to-cart">Add to cart</button>
+      	<button class="btn btn-primary add-to-cart" #el (click)="addToCart(el, product)">
+      		Add to cart
+      		<span class="tooltiptext">Added to cart</span>
+      	</button>
 
 
 	</div> <!-- End of product info -->

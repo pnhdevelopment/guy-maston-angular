@@ -31,8 +31,19 @@ export class HomeComponent implements OnInit {
     return this.items.filter(x => x.category == type);
   }
 
-  addToCart(item){
+  addToCart(el, item){
+    
+    //adds item to cart
     this.cart.addToCart(item);
+
+    //adds tooltip class so that 'Added to cart' message appears
+    el.childNodes[1].classList.add("clicked");
+
+    //removes tooltip class so that 'Added to cart' message disappears
+    setTimeout(function(){
+      el.childNodes[1].classList.remove("clicked");
+    }, 2000);
+
   }
 
   // Fade-in for image thumbnails

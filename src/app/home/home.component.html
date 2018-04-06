@@ -32,17 +32,19 @@
     </a>
     <div class="product-info">
       <h5 class="mt-1"><a routerLink="product/{{product.title_slug}}">{{product.title}}</a></h5>
-	      <div>
-		      <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
-		      <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
-	      </div>
-	      <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
+        <div>
+          <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
+          <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
+        </div>
+        <button class="btn btn-primary add-to-cart" #el1 (click)="addToCart(el1, product)">
+          Add to cart
+          <span class="tooltiptext">Added to cart</span>
+        </button>
     </div>
   </div>  <!-- End of item -->
 
 
 </div> <!-- End of row -->
-
 
 
 
@@ -81,7 +83,10 @@
           <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
           <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
         </div>
-        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
+        <button class="btn btn-primary add-to-cart" #el2 (click)="addToCart(el2, product)">
+          Add to cart
+          <span class="tooltiptext">Added to cart</span>
+        </button>
     </div>
   </div> <!-- End of item -->
 
@@ -125,7 +130,10 @@
           <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
           <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
         </div>
-        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
+        <button class="btn btn-primary add-to-cart" #el3 (click)="addToCart(el3, product)">
+          Add to cart
+          <span class="tooltiptext">Added to cart</span>
+        </button>
     </div>
   </div> <!-- End of item -->
 
@@ -169,7 +177,10 @@
           <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
           <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
         </div>
-        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
+        <button class="btn btn-primary add-to-cart" #el5 (click)="addToCart(el5, product)">
+          Add to cart
+          <span class="tooltiptext">Added to cart</span>
+        </button>
     </div>
   </div> <!-- End of item -->
 
@@ -213,7 +224,10 @@
           <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
           <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
         </div>
-        <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
+        <button class="btn btn-primary add-to-cart" #el6 (click)="addToCart(el6, product)">
+          Add to cart
+          <span class="tooltiptext">Added to cart</span>
+        </button>
     </div>
   </div> <!-- End of item -->
 
@@ -257,7 +271,10 @@
             <span class="reduced-price mr-2">${{product.price | number : '1.2-2'}}</span>
             <del class="previous-price">${{product.previous_price | number : '1.2-2'}}</del>
           </div>
-          <button class="btn btn-primary add-to-cart" (click)="addToCart(product)">Add to cart</button>
+          <button class="btn btn-primary add-to-cart" #el7 (click)="addToCart(el7, product)">
+            Add to cart
+            <span class="tooltiptext">Added to cart</span>
+          </button>
       </div>
   </div> <!-- End of item -->
 

@@ -180,7 +180,14 @@
                             <span class="reduced-price mr-2">${{item.price | number : '1.2-2'}}</span>
                             <del class="previous-price">${{item.previous_price | number : '1.2-2'}}</del>
                         </div>
-                        <button class="btn btn-primary add-to-cart" (click)="addToCart(item)">Add to cart</button>
+                        
+                        <!-- Add to cart button -->
+                        <button class="btn btn-primary add-to-cart" #el (click)="addToCart(el, item)">
+                            Add to cart
+                            <span class="tooltiptext">Added to cart</span>
+                        </button>
+
+                        <!-- <button class="btn btn-primary add-to-cart" #el (click)="addToCart(el, item)">Add to cart</button> -->
                     </div>
                 </div> <!-- End item -->
             </div> <!-- End search results -->
