@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
     //adds tooltip class so that 'Added to cart' message appears
     el.childNodes[1].classList.add("clicked");
-
+   
     //removes tooltip class so that 'Added to cart' message disappears
     setTimeout(function(){
       el.childNodes[1].classList.remove("clicked");

@@ -1,0 +1,30 @@
+Making opacity transitions work with visibility
+
+<div>
+  <a href="#">Open Menu</a>
+  <ul class="menu">
+    <li><a href="#">Item</a></li>
+    <li><a href="#">Item</a></li>
+    <li><a href="#">Item</a></li>
+  </ul>
+</div>
+
+div {
+    width:100px;
+    height:20px;
+}
+.menu {
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0.3s linear,opacity 0.3s linear;
+    
+    background:#eee;
+    width:100px;
+    margin:0;
+    padding:5px;
+    list-style:none;
+}
+div:hover > .menu {
+    visibility:visible;
+    opacity:1;
+}

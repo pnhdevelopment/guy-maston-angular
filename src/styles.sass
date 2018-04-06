@@ -93,8 +93,9 @@ main
     display: inline-block
 
 .add-to-cart .tooltiptext
+    visibility: hidden
     opacity: 0
-    transition: 0.2s
+    transition: visibility 0.3s linear, opacity 0.3s linear
     width: 120px
     background-color: #242a32
     color: #fff
@@ -106,7 +107,6 @@ main
     bottom: 150%
     left: 50%
     margin-left: -60px
-    cursor: text
 
 .add-to-cart .tooltiptext::after
     content: ""
@@ -119,4 +119,5 @@ main
     border-color: #242a32 transparent transparent transparent
 
 .add-to-cart .tooltiptext.clicked
-      opacity: 1
+    visibility: visible
+    opacity: 1
