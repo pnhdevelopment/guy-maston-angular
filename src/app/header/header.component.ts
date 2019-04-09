@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth.service';
+// import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,8 @@ import { AuthService } from '../auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, public auth: AuthService) { }
+  // , public auth: AuthService
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }

@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
+// import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 // Services
-import { AuthService } from './auth.service';
+// import { AuthService } from './auth.service';
 import { CartService } from './cart.service';
 
 
@@ -42,14 +44,14 @@ const appRoutes: Routes = [
 ];
 
 
-var firebaseConfig = {
-  apiKey: "AIzaSyBjTyO5q7WyxRuqyNnSwyXJsv_PzcnBLoo",
-  authDomain: "subscriptions-cb99c.firebaseapp.com",
-  databaseURL: "https://subscriptions-cb99c.firebaseio.com",
-  projectId: "subscriptions-cb99c",
-  storageBucket: "",
-  messagingSenderId: "583676567943"
-};
+// var firebaseConfig = {
+//   apiKey: "AIzaSyBjTyO5q7WyxRuqyNnSwyXJsv_PzcnBLoo",
+//   authDomain: "subscriptions-cb99c.firebaseapp.com",
+//   databaseURL: "https://subscriptions-cb99c.firebaseio.com",
+//   projectId: "subscriptions-cb99c",
+//   storageBucket: "",
+//   messagingSenderId: "583676567943"
+// };
 
 @NgModule({
   declarations: [
@@ -74,12 +76,13 @@ var firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
     ScrollToModule.forRoot()
   ],
-  providers: [ AuthService, CartService ],
+  providers: [ CartService ],
   bootstrap: [AppComponent]
 })
+
+
+//  AuthService, AngularFireModule.initializeApp(firebaseConfig), AngularFirestoreModule, AngularFireAuthModule,
+
 export class AppModule { }

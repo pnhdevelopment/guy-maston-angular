@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { AuthService } from '../auth.service';
+// import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -13,7 +13,8 @@ export class CartComponent implements OnInit {
   cartItems: any;
   totalPrice: any;
 
-  constructor(private cart: CartService, public auth: AuthService){ }
+  // , public auth: AuthService
+  constructor(private cart: CartService){ }
 
   ngOnInit() {
     //obtain cart items from localstorage

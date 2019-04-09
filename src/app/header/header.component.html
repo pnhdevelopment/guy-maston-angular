@@ -11,20 +11,20 @@
 		<div class="col-lg-6 col-md-6 col-sm-12 admin my-auto text-xl-right text-lg-right text-md-right text-center">
 
 			<!-- Log out -->
-			<div *ngIf="auth.afAuth.authState | async; else showLogin" class="d-inline">
+			<!-- <div *ngIf="auth.afAuth.authState | async; else showLogin" class="d-inline">
 				<a (click)="auth.logout()" class="align-middle">
 					<svg class="icon"><use xlink:href="assets/sprite.svg#sign-in"></use></svg>
 					<span>Logout</span>
 				</a>
-			</div>
+			</div> -->
 			
 			<!-- Sign in -->
-			<ng-template #showLogin>
+			<!-- <ng-template #showLogin>
 				<a (click)="auth.login()" class="align-middle">
 					<svg class="icon"><use xlink:href="assets/sprite.svg#sign-in"></use></svg>
 					<span>Sign in</span>
 				</a>
-			</ng-template>
+			</ng-template> -->
 			
 			<!-- Cart -->
 			<a routerLink="cart" class="align-middle">

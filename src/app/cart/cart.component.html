@@ -14,8 +14,8 @@
 		</div>
 	</div>
 
-	<!-- Cart (if logged in) -->
-	<div *ngIf="auth.afAuth.authState | async; else showLogin">
+	<!-- Cart (if logged in) --> <!--- *ngIf="auth.afAuth.authState | async; else showLogin" --->
+	<div>
 		<div class="row mb-4" *ngFor="let item of cartItems">
 			<div class="col-sm-6 col-md-4 pb-2">
 				<img src="{{item.images['550px']}}" alt="">
